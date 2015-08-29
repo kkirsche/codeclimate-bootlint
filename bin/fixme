@@ -1,6 +1,0 @@
-#!/usr/bin/env node
-
-var FixMe = require('../index');
-var fixMe = new FixMe();
-
-fixMe.runEngine();

@@ -1,0 +1,16 @@
+#!/usr/bin/env node
+
+'use strict';
+
+var bootlint = (process.env.BOOTLINT_COV === '1') ? require('../src-cov/bootlint.js') : require('../src/bootlint.js');
+var fs = require('fs');
+var path = require('path');
+
+function lintHtml(html, disabledIds) {
+    var lints = [];
+    var reporter = function (lint) {
+        lints.push(lint.message);
+    };
+    bootlint.lintHtml(html, reporter, disabledIds || []);
+    return lints;
+}
