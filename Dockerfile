@@ -1,10 +1,10 @@
 FROM node
 
-MAINTAINER Michael R. Bernstein
+MAINTAINER Kevin Kirsche
 
 RUN useradd -u 9000 -r -s /bin/false app 
 
-RUN npm install glob
+RUN npm install bootlint
 
 WORKDIR /code
 COPY . /usr/src/app
@@ -12,4 +12,4 @@ COPY . /usr/src/app
 USER app
 VOLUME /code
 
-CMD ["/usr/src/app/bin/fixme"]
+CMD ["/usr/src/app/bin/bootlint"]
